@@ -5,43 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GroupMind</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <style>
         /* Custom animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .fade-in {
-            animation: fadeIn 1s ease-out;
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Scroll-triggered animations */
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+        }
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+        }
+
+        /* Staggered animations */
+        .scroll-animate.delay-1 {
+            transition-delay: 0.2s;
+        }
+        .scroll-animate.delay-2 {
+            transition-delay: 0.4s;
+        }
+        .scroll-animate.delay-3 {
+            transition-delay: 0.6s;
+        }
+
+        /* Hover effects */
+        .hover-scale {
+            transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hover-glow {
+            transition: box-shadow 0.5s ease-in-out;
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body class="bg-black text-white">
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center fade-in">
-        <h1 class="text-6xl font-bold mb-4">GroupMind</h1>
-        <p class="text-xl mb-8">The future of collaborative intelligence.</p>
-        <a href="#features" class="bg-white text-black px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300">
-            Learn More
+    <section class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-black to-gray-900">
+        <h1 class="text-6xl font-bold mb-4 scroll-animate delay-1">
+            <span class="text-red-500">G</span>roup<span class="text-red-500">M</span>ind
+        </h1>
+        <p class="text-xl mb-8 scroll-animate delay-2">Bringing online communities to life with AI-powered digital personas.</p>
+        <a href="#features" class="bg-white text-black px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition duration-300 scroll-animate delay-3 hover-scale">
+            Explore GroupMind
         </a>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-20 fade-in">
+    <section id="features" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Features</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 scroll-animate delay-1">What We Do</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4">Collaborative AI</h3>
-                    <p>Harness the power of collective intelligence with GroupMind's advanced AI algorithms.</p>
+                <!-- Feature 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg scroll-animate delay-1 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4">AI-Powered Personas</h3>
+                    <p>We create digital personas of online forums like Reddit, powered by advanced AI.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4">Seamless Integration</h3>
-                    <p>Integrate GroupMind into your workflow effortlessly.</p>
+                <!-- Feature 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg scroll-animate delay-2 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4">Real-Time Interaction</h3>
+                    <p>Engage with digital personas that respond dynamically.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4">Real-Time Insights</h3>
-                    <p>Get real-time insights and analytics to make informed decisions.</p>
+                <!-- Feature 3 -->
+                <div class="bg-gray-800 p-6 rounded-lg scroll-animate delay-3 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4">Data-Driven Insights</h3>
+                    <p>Gain valuable insights into community behavior and trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 scroll-animate delay-1">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg scroll-animate delay-1 hover-glow">
+                    <h3 class="text-2xl font-bold mb-4">1. Analyze Communities</h3>
+                    <p>Our AI scans and analyzes online forums to understand community dynamics.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg scroll-animate delay-2 hover-glow">
+                    <h3 class="text-2xl font-bold mb-4">2. Create Digital Personas</h3>
+                    <p>We build digital personas that embody the collective voice of the community.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-gray-800 p-6 rounded-lg scroll-animate delay-3 hover-glow">
+                    <h3 class="text-2xl font-bold mb-4">3. Interact and Engage</h3>
+                    <p>Users can interact with these personas in real-time.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-gray-800 p-6 rounded-lg scroll-animate delay-4 hover-glow">
+                    <h3 class="text-2xl font-bold mb-4">4. Gain Insights</h3>
+                    <p>Our platform provides actionable insights into community trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subreddit Input Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 scroll-animate delay-1">Analyze a Subreddit</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gray-900 p-8 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input
+                            type="text"
+                            id="subredditInput"
+                            placeholder="Enter a subreddit name (e.g., AskReddit)"
+                            class="flex-grow p-4 rounded-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        <button
+                            id="analyzeButton"
+                            class="bg-red-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-600 transition duration-300"
+                        >
+                            Analyze
+                        </button>
+                    </div>
+                    <p id="subredditMessage" class="mt-4 text-gray-400 text-sm"></p>
                 </div>
             </div>
         </div>
@@ -51,6 +155,5 @@
     <footer class="bg-gray-900 py-8 text-center">
         <p>&copy; 2023 GroupMind. All rights reserved.</p>
     </footer>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
