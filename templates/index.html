@@ -150,10 +150,36 @@
             </div>
         </div>
     </section>
-
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 scroll-animate delay-1">Chat with the Subreddit Persona</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <!-- Chat Interface -->
+                    <div id="chatWindow" class="h-96 overflow-y-auto mb-4 p-4 bg-gray-700 rounded-lg">
+                        <!-- Chat messages will appear here -->
+                    </div>
+                    <div class="flex gap-4">
+                        <input
+                            type="text"
+                            id="chatInput"
+                            placeholder="Type your message..."
+                            class="flex-grow p-4 rounded-lg bg-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        <button
+                            id="sendButton"
+                            class="bg-red-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-600 transition duration-300"
+                        >
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer class="bg-gray-900 py-8 text-center">
-        <p>&copy; 2023 GroupMind. All rights reserved.</p>
+        <p>&copy; 2025 GroupMind. All rights reserved.</p>
     </footer>
 </body>
 </html>
